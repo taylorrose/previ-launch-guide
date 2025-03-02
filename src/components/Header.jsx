@@ -73,6 +73,7 @@ export const Header = forwardRef(function Header({ className, ...props }, ref) {
                 className="h-6 w-auto"
                 priority // optional optimization for images above-the-fold
             />
+            <p>Launch Guide</p>
           </Link>
         </div>
         <div className="flex items-center gap-5">

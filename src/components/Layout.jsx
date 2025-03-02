@@ -31,6 +31,7 @@ export function Layout({ children, allSections }) {
                   className="h-6 w-auto"
                   priority
                 />
+                <p>Launch Guide</p>
               </Link>
             </div>
             <Header />
