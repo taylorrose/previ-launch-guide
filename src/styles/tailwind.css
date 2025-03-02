@@ -58,3 +58,33 @@
     display: none;
   }
 }
+
+/* ---- Custom Fonts ---- */
+/* ABC Arizona Flare - explicit Heading font (h1) */
+@font-face {
+  font-family: 'ABCArizonaFlare-Medium';
+  src: url('/fonts/ABCArizonaFlare-Medium.woff2') format('woff2');
+
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Gilroy - explicit global font (everything else) */
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src: url('/fonts/gilroy-medium.woff2') format('woff2');
+
+  font-style: normal;
+  font-display: swap;
+}
+
+/* explicitly apply fonts to your entire site */
+h1 {
+  @apply font-heading;
+}
+
+@layer base {
+  html {
+    font-size: 125% !important;
+  }
+}

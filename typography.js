@@ -1,5 +1,9 @@
 export default {
   theme: {
+    fontFamily: {
+      heading: ['ABCArizonaFlare-Medium', 'sans-serif'],
+      body: ['Gilroy-Medium', 'sans-serif'],
+    },
     typography: ({ theme }) => ({
       DEFAULT: {
         css: {
