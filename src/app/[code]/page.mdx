@@ -1,11 +1,31 @@
 import { CodeParam } from './CodeParam.jsx'
 import { AccessLink } from './AccessLink.jsx'
 import { HeroPattern } from '@/components/HeroPattern'
+import { VideoPlayer } from '@/components/VideoPlayer.jsx'
 
 <HeroPattern />
-# Testing Dynamic Route
+# <CodeParam /> Launch Guide 🚀
 
-This route retrieves a code from the URL’s `[code]` parameter and displays it inline:
+Use the Launch guide to maximize your rollout to employees.
+
+Previ is an employer-provided benefit that gives employees access to private pricing on essential goods and services. Through <CodeParam /> partnership with Previ, employees can unlock exclusive, unadvertised rates that are not available to the general public.
+
+<div className="not-prose mt-6 mb-16 flex gap-3">
+    <Button href="./quickstart" arrow="right">
+        <>Quickstart</>
+    </Button>
+    <Button href="./sdks" variant="outline">
+        <>Explore SDKs</>
+    </Button>
+</div>
+
+## Employee Store {{ tag: 'NEW', label: 'March 2025' }}
+
+<VideoPlayer videoPath="/videos/traeger_teaser.mp4" />
+
+This route retrieves a code from the URL’s `<CodeParam />` parameter and displays it inline:
+
+<AccessLink><CodeParam></CodeParam> access site</AccessLink>
 
 The code is:
 <Note>
@@ -16,7 +36,7 @@ again the code is
 
 
 you can go to your link here:
-<AccessLink>Click here to access your code!</AccessLink>
+<AccessLink/>
 
 
 [Update an Attachment](.../attachments#update-an-attachment)
