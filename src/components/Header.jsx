@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 
 // 1) Import your PNG
 import Image from 'next/image'
-import previLogoDarkTiny from '@/images/logos/previ_logo_dark_tiny.png'
+import previLogoDarkTiny from '@/images/logos/previ_logo_dark_medium.png'
 
 import { Button } from '@/components/Button'
 import {
@@ -90,7 +90,7 @@ export const Header = forwardRef(function Header({ className, ...props }, ref) {
             {/* <ThemeToggle /> */}
           </div>
           <div className="hidden min-[416px]:contents">
-            <Button href="#">Sign in</Button>
+            <Button href="#">Access</Button>
           </div>
         </div>
       </motion.div>

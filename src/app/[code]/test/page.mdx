@@ -1,0 +1,14 @@
+// src/app/[code]/page.jsx
+import { Note } from '@/components/mdx'
+
+export default function CodePage({ params }) {
+  return (
+    <div>
+      <h1>This is an MDX page</h1>
+      <p>Code is:</p>
+      <Note>
+        {params.code}
+      </Note>
+    </div>
+  )
+}

@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 
 import Image from 'next/image'
-import previLogoDarkTiny from '@/images/logos/previ_logo_dark_tiny.png'
+import previLogoDarkTiny from '@/images/logos/previ_logo_dark_medium.png'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
