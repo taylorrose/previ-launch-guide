@@ -1,0 +1,99 @@
+import { CodeParam } from '../../CodeParam.jsx'
+import { AccessLink } from '../../AccessLink.jsx'
+import {AccessCodeBox} from "../../AccessCodeBox";
+import {AccessQRCode} from "../../AccessQRCode.jsx";
+import { CompanyName } from '../../CompanyName.jsx'
+import { HeroPattern } from '@/components/HeroPattern'
+import { VideoPlayer } from '@/components/VideoPlayer.jsx'
+import {Col} from "../../../../components/mdx";
+
+<HeroPattern />
+#  Launch Guide 🚀
+## <CompanyName />
+Previ is a workplace benefit that gives employees access to private pricing on wireless plans, home & auto insurance, and premium shopping—all with concierge support to make enrollment and switching plans easy.
+
+This guide is designed to save you time while making it simple to roll out Previ to your team. With pre-written communications, a launch timeline, and support resources, you’ll have everything you need to drive awareness and engagement.
+
+<div className="not-prose mt-6 mb-16 flex gap-3">
+    <Button href="./quickstart" arrow="right">
+        <>Quickstart</>
+    </Button>
+    <Button href="./sdks" variant="outline">
+        <>Explore Previ Benefits</>
+    </Button>
+</div>
+
+---
+
+
+## Quickshare Enrollment Link {{ tag: 'PRIVATE ACCESS', label: 'Share with employees.' }}
+
+[//]: # (Share the *exclusive* <strong><CompanyName ></ CompanyName></strong> enrollment link with employees for signup and access to dedicated concierge support:)
+
+<Row>
+    <Col>
+        #### <CompanyName /> Enrollment URL
+        <AccessCodeBox/>
+    </Col>
+    <Col>
+        <AccessQRCode/>
+    </Col>
+</Row>
+
+
+
+---
+## Rollout Communications
+
+| Email                                                       | Slack / Teams                                            | SMS (Chirp)                                       | Desk Drops                                              |
+| ----------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------- |
+| Pre-written email templates to announce Previ to employees. | Ready-to-post messages to share in Slack/Teams channels. | Pre-formatted SMS reminders to drive enrollment.  | Printable fliers with QR codes for break rooms & desks. |
+| [See Templates →](...)               | [See Templates →](...)      | [See Templates →](...) | [See Templates →](...)      |
+
+## Benefits
+
+| Phone Plans                                       | Home & Auto Insurance                                               | Employee Store                                      | Private Pricing                                              |
+| ------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
+| Lower-cost unlimited plans with premium carriers. | Group-discounted home & auto policies for better rates. | Employee-like pricing on premium brands.            | Why private pricing is a valuable employee benefit.          |
+| [Read More →](...)  | [Read More →](...)          | [Read More →](...)| [Read More →](...) |
+
+---
+
+[//]: # (## Employee Store {{ tag: 'NEW', label: 'March 2025' }})
+
+[//]: # (<VideoPlayer src="/videos/traeger_teaser.mp4" width='75%'/>)
+
+[//]: # (---)
+
+[//]: # ()
+[//]: # (This route retrieves a code from the URL’s `<CodeParam />` parameter and displays it inline:)
+
+[//]: # ()
+[//]: # (<AccessLink><CodeParam></CodeParam> access site</AccessLink>)
+
+[//]: # ()
+[//]: # (> What does this do?)
+
+[//]: # ()
+[//]: # ()
+[//]: # ()
+[//]: # (The code is:)
+
+[//]: # (<Note>)
+
+[//]: # (<CodeParam />)
+
+[//]: # (</Note>)
+
+[//]: # ()
+[//]: # (again the code is)
+
+[//]: # ()
+[//]: # ()
+[//]: # (you can go to your link here:)
+
+[//]: # (<AccessLink/>)
+
+[//]: # ()
+[//]: # ()
+[//]: # ([Update an Attachment]&#40;.../attachments#update-an-attachment&#41;)

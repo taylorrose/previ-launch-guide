@@ -27,16 +27,19 @@ const variantStyles = {
 }
 
 export function Button({
-  variant = 'primary',
-  className,
-  children,
-  arrow,
-  ...props
-}) {
+                         variant = 'primary',
+                         className,
+                         children,
+                         arrow,
+                         download, // <--- We'll detect this prop
+                         href,
+                         ...props
+                       }) {
+  // Compose Tailwind classes
   className = clsx(
     'inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition',
     variantStyles[variant],
-    className,
+    className
   )
 
   let arrowIcon = (
@@ -45,7 +48,7 @@ export function Button({
         'mt-0.5 h-5 w-5',
         variant === 'text' && 'relative top-px',
         arrow === 'left' && '-ml-1 rotate-180',
-        arrow === 'right' && '-mr-1',
+        arrow === 'right' && '-mr-1'
       )}
     />
   )
@@ -58,7 +61,8 @@ export function Button({
     </>
   )
 
-  if (typeof props.href === 'undefined') {
+  // 1) No href => standard <button>
+  if (typeof href === 'undefined') {
     return (
       <button className={className} {...props}>
         {inner}
@@ -66,8 +70,18 @@ export function Button({
     )
   }
 
+  // 2) If 'download' is specified => render a plain <a> with download
+  if (download) {
+    return (
+      <a href={href} download className={className} {...props}>
+        {inner}
+      </a>
+    )
+  }
+
+  // 3) Otherwise => Next.js <Link>
   return (
-    <Link className={className} {...props}>
+    <Link href={href} className={className} {...props}>
       {inner}
     </Link>
   )
