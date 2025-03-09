@@ -11,7 +11,7 @@ export default function EnterCodeForm() {
     e.preventDefault()
     // If user typed "XYZ", we redirect them to "/XYZ/introduction"
     if (inputValue.trim()) {
-      router.push(`/${inputValue.trim()}/rollout/introduction`)
+      router.push(`/${inputValue.trim()}/introduction`)
     }
   }
 

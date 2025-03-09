@@ -193,25 +193,23 @@ function NavigationGroup({ group, className }) {
 
 export const navigation = [
   {
-    title: 'Guides',
+    title: 'Rollout',
     links: [
-      { title: 'Introduction', href: '/' },
-      { title: 'Quickstart', href: '/quickstart' },
-      { title: 'SDKs', href: '/sdks' },
-      { title: 'Authentication', href: '/authentication' },
-      { title: 'Pagination', href: '/pagination' },
-      { title: 'Errors', href: '/errors' },
-      { title: 'Webhooks', href: '/webhooks' },
+      { title: 'Introduction', href: './introduction' },
+      { title: 'Quickstart', href: './quickstart' },
+      { title: 'Emails', href: './emails' },
+      { title: 'Slack / Teams Posts', href: './posts' },
+      { title: 'SMS Sends', href: './sms' },
+      { title: 'Desk Drops', href: './flyers' },
     ],
   },
   {
-    title: 'Resources',
+    title: 'Benefits',
     links: [
-      { title: 'Contacts', href: '/contacts' },
-      { title: 'Conversations', href: '/conversations' },
-      { title: 'Messages', href: '/messages' },
-      { title: 'Groups', href: '/groups' },
-      { title: 'Attachments', href: '/attachments' },
+      { title: 'Employee Pricing', href: '/contacts' },
+      { title: 'Phone Plans', href: '/conversations' },
+      { title: 'Insurance', href: '/messages' },
+      { title: 'Employee Store', href: '/groups' },
     ],
   },
 ]
@@ -220,9 +218,9 @@ export function Navigation(props) {
   return (
     <nav {...props}>
       <ul role="list">
-        <TopLevelNavItem href="/">API</TopLevelNavItem>
-        <TopLevelNavItem href="#">Documentation</TopLevelNavItem>
-        <TopLevelNavItem href="#">Support</TopLevelNavItem>
+        <TopLevelNavItem href="/">Get Started</TopLevelNavItem>
+        <TopLevelNavItem href="#">Quick Start</TopLevelNavItem>
+        <TopLevelNavItem href="#">Benefits</TopLevelNavItem>
         {navigation.map((group, groupIndex) => (
           <NavigationGroup
             key={group.title}
