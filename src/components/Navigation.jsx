@@ -206,10 +206,10 @@ export const navigation = [
   {
     title: 'Benefits',
     links: [
-      { title: 'Employee Pricing', href: '/contacts' },
-      { title: 'Phone Plans', href: '/conversations' },
-      { title: 'Insurance', href: '/messages' },
-      { title: 'Employee Store', href: '/groups' },
+      { title: 'Overview', href: './overview' },
+      { title: 'Phone Plans', href: './wireless' },
+      { title: 'Insurance', href: './insurance' },
+      { title: 'Employee Store', href: './store' },
     ],
   },
 ]
