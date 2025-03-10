@@ -22,7 +22,7 @@ export default function EnterCodeForm() {
         placeholder="Enter text..."
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        className="border p-2"
+        className="rounded border border-gray-300 p-2"
       />
       <Button type="submit">Enter Access Code</Button>
     </form>
