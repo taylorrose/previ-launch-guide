@@ -3,14 +3,15 @@ import { AccessLink } from '../AccessLink.jsx'
 import {AccessCodeBox} from "../AccessCodeBox";
 import {AccessQRCode} from "../AccessQRCode.jsx";
 import { CompanyName } from '../CompanyName.jsx'
-import { HeroPattern } from '@/components/HeroPattern'
+
 import { VideoPlayer } from '@/components/VideoPlayer.jsx'
 import {Col} from "../../../components/mdx";
 import { ValidateCode } from '@/app/[code]/ValidateCode.jsx'
 
 <ValidateCode />
+<div className="relative">
 
-<HeroPattern />
+<div className="relative min-h-screen">
 
 #  Launch Guide 🚀
 ## <CompanyName />
@@ -56,43 +57,5 @@ This guide is designed to save you time while making it simple to roll out Previ
 | Lower-cost unlimited plans with premium carriers. | Group-discounted home & auto policies for better rates. | Employee-like pricing on premium brands.            | Why private pricing is a valuable employee benefit.          |
 | [Read More →](...)  | [Read More →](...)          | [Read More →](...)| [Read More →](...) |
 
----
-
-[//]: # (## Employee Store {{ tag: 'NEW', label: 'March 2025' }})
-
-[//]: # (<VideoPlayer src="/videos/traeger_teaser.mp4" width='75%'/>)
-
-[//]: # (---)
-
-[//]: # ()
-[//]: # (This route retrieves a code from the URL’s `<CodeParam />` parameter and displays it inline:)
-
-[//]: # ()
-[//]: # (<AccessLink><CodeParam></CodeParam> access site</AccessLink>)
-
-[//]: # ()
-[//]: # (> What does this do?)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (The code is:)
-
-[//]: # (<Note>)
-
-[//]: # (<CodeParam />)
-
-[//]: # (</Note>)
-
-[//]: # ()
-[//]: # (again the code is)
-
-[//]: # ()
-[//]: # ()
-[//]: # (you can go to your link here:)
-
-[//]: # (<AccessLink/>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ([Update an Attachment]&#40;.../attachments#update-an-attachment&#41;)
+    </ div>
+</ div>

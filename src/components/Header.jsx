@@ -15,10 +15,13 @@ import {
 } from '@/components/MobileNavigation'
 import { useMobileNavigationStore } from '@/components/MobileNavigation'
 import { MobileSearch, Search } from '@/components/Search'
-// import { ThemeToggle } from '@/components/ThemeToggle'
+import { ThemeToggle } from '@/components/ThemeToggle'
+import { HeroPattern } from '@/components/HeroPattern'
+
 
 function TopLevelNavItem({ href, children }) {
   return (
+
       <li>
         <Link
             href={href}
@@ -39,6 +42,7 @@ export const Header = forwardRef(function Header({ className, ...props }, ref) {
   let bgOpacityDark = useTransform(scrollY, [0, 72], [0.2, 0.8])
 
   return (
+
       <motion.div
           {...props}
           ref={ref}
@@ -79,18 +83,18 @@ export const Header = forwardRef(function Header({ className, ...props }, ref) {
         <div className="flex items-center gap-5">
           <nav className="hidden md:block">
             <ul role="list" className="flex items-center gap-8">
-              <TopLevelNavItem href="/">API</TopLevelNavItem>
-              <TopLevelNavItem href="#">Documentation</TopLevelNavItem>
+              <TopLevelNavItem href="./introduction">Rollout</TopLevelNavItem>
+              <TopLevelNavItem href="./overview">Benefits</TopLevelNavItem>
               <TopLevelNavItem href="#">Support</TopLevelNavItem>
             </ul>
           </nav>
           <div className="hidden md:block md:h-5 md:w-px md:bg-zinc-900/10 md:dark:bg-white/15" />
           <div className="flex gap-4">
             <MobileSearch />
-            {/* <ThemeToggle /> */}
+             <ThemeToggle />
           </div>
           <div className="hidden min-[416px]:contents">
-            <Button href="#">Access</Button>
+            <Button href="./quickstart" arrow="right">Launch Previ</Button>
           </div>
         </div>
       </motion.div>

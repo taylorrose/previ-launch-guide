@@ -10,11 +10,19 @@ export function AccessCodeBox() {
   return (
     <div className="space-y-2">
       <input
-        id="access-url"
         type="text"
         value={displayUrl}
         readOnly
-        className="w-full rounded border border-gray-300 p-2"
+        className="
+          w-full h-8
+          rounded
+          bg-white pr-3 pl-3 text-sm text-zinc-700
+          ring-1 ring-zinc-900/10 transition-colors
+          placeholder:text-zinc-500
+          dark:bg-white/5 dark:text-zinc-300 dark:ring-white/10
+          focus:outline-none
+          hover:ring-zinc-900/20
+        "
       />
       <div className="not-prose">
         <Button
