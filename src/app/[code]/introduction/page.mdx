@@ -3,7 +3,8 @@ import { AccessLink } from '../AccessLink.jsx'
 import {AccessCodeBox} from "../AccessCodeBox";
 import {AccessQRCode} from "../AccessQRCode.jsx";
 import { CompanyName } from '../CompanyName.jsx'
-
+import { Rollout } from '../Rollout.jsx'
+import { Benefits } from '../Benefits.jsx'
 import { VideoPlayer } from '@/components/VideoPlayer.jsx'
 import {Col} from "../../../components/mdx";
 import { ValidateCode } from '@/app/[code]/ValidateCode.jsx'
@@ -24,9 +25,10 @@ This guide is designed to save you time while making it simple to roll out Previ
         <>Quickstart</>
     </Button>
     <Button href="./overview" variant="outline">
-        <>Explore Previ Benefits</>
+        <>Explore Previ Rollout</>
     </Button>
 </div>
+
 
 ---
 ## Quickshare Enrollment Link {{ tag: 'PRIVATE ACCESS', label: 'Share with employees.' }}
@@ -42,20 +44,18 @@ This guide is designed to save you time while making it simple to roll out Previ
 
 
 
+<Rollout />
+
+<Benefits />
+
 ---
-## Rollout Communications
-
-| Email                                                       | Slack / Teams                                            | SMS (Chirp)                                       | Desk Drops                                              |
-| ----------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------- |
-| Pre-written email templates to announce Previ to employees. | Ready-to-post messages to share in Slack/Teams channels. | Pre-formatted SMS reminders to drive enrollment.  | Printable fliers with QR codes for break rooms & desks. |
-| [See Templates →](...)               | [See Templates →](...)      | [See Templates →](...) | [See Templates →](...)      |
-
-## Benefits
+## Benefit Details
 
 | Phone Plans                                       | Home & Auto Insurance                                               | Employee Store                                      | Private Pricing                                              |
 | ------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
 | Lower-cost unlimited plans with premium carriers. | Group-discounted home & auto policies for better rates. | Employee-like pricing on premium brands.            | Why private pricing is a valuable employee benefit.          |
 | [Read More →](...)  | [Read More →](...)          | [Read More →](...)| [Read More →](...) |
+
 
     </ div>
 </ div>

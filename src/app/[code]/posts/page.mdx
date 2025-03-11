@@ -1,4 +1,5 @@
 import { ValidateCode } from '@/app/[code]/ValidateCode.jsx'
+import {LinkParam} from "../LinkParam";
 
 <ValidateCode />
 
@@ -6,45 +7,73 @@ import { ValidateCode } from '@/app/[code]/ValidateCode.jsx'
 
 These quick messages effectively boost awareness and engagement via Slack or Teams.
 
-> [!TIP]
-> Use Slack/Teams to remind and engage employees quickly. Shorter messages increase readability and engagement.
+<Note> Use Slack/Teams to remind and engage employees quickly. Shorter messages increase readability and engagement.</Note>
 
 ---
 
-## Week 1: Announce Previ to Employees
+## Week 1
+### Announce Previ to Employees
 
 > Hi team—We’re excited to offer exclusive employee access to private pricing on unlimited phone plans starting at $20/month.
 >
-> Check it out here: [Access Pricing →]
+> Check it out here: <LinkParam/>
 
-`Copy Message`
+<>
+<Button href="slack://open" variant="outline">
+    <>Copy & Open Slack</>
+</Button>     <Button href="msteams://" variant="outline">
+    <>Copy & Open Teams</>
+</Button>
+</>
 
 ---
 
-## Week 2: Deadline Reminder
+## Week 2
+### Deadline Reminder
 
 > Reminder: Your chance to enroll in private phone plans ends soon ([Deadline Date]).
 >
-> Don't miss your opportunity to save: [Enroll Now →]
+> Don't miss your opportunity to save: <LinkParam/>
 
-`Copy Message`
+<>
+<Button href="slack://open" variant="outline">
+    <>Copy & Open Slack</>
+</Button>
+<Button href="msteams://" variant="outline">
+<>Copy & Open Teams</>
+</Button>
+</>
 
 ---
 
-## Week 3: Keep Previ Top of Mind
+## Week 3
+### Keep Previ Top of Mind
 
 > Quick reminder—private employee phone plan pricing is still available until [Deadline Date].
 >
-> Check your rates now: [Check Pricing →]
+> Check your rates here: <LinkParam/>
 
-`Copy Message`
+    <>
+        <Button href="slack://open" variant="outline">
+            <>Copy & Open Slack</>
+        </Button>     <Button href="msteams://" variant="outline">
+        <>Copy & Open Teams</>
+    </Button>
+    </>
 
 ---
 
-## Final Day: Last Chance Reminder
+## Final Day
+### Last Chance Reminder
 
 > Final reminder: Today is the last day to secure private employee pricing on phone plans.
 >
-> Lock in your benefit now: [Register →]
+> Lock in your benefit here: <LinkParam/>
 
-`Copy Message`
+<>
+    <Button href="slack://open" variant="outline">
+        <>Copy & Open Slack</>
+    </Button>     <Button href="msteams://" variant="outline">
+    <>Copy & Open Teams</>
+</Button>
+</>
