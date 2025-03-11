@@ -12,10 +12,10 @@ import { UsersIcon } from '@/components/icons/UsersIcon'
 
 const resources = [
   {
-    href: './emails',
+    href: './overview',
     name: 'Overview',
     description:
-      'Pre-written email templates to announce Previ to employees.',
+      'Get an overview of the Previ benefits platform.',
     icon: EnvelopeIcon,
     pattern: {
       y: 16,
@@ -26,10 +26,10 @@ const resources = [
     },
   },
   {
-    href: './posts',
+    href: './wireless',
     name: 'Phone Plans',
     description:
-      'Ready-to-post messages to share in Slack/Teams channels.',
+      'Group-discounted home & auto policies for better rates.',
     icon: UserIcon,
     pattern: {
       y: -6,
@@ -40,10 +40,10 @@ const resources = [
     },
   },
   {
-    href: './sms',
+    href: './insurance',
     name: 'Insurance',
     description:
-      'Pre-formatted SMS reminders to drive enrollment.',
+      'Price comparison and monitoring on home & auto policies for better rates.',
     icon: ChatBubbleIcon,
     pattern: {
       y: 32,
@@ -54,10 +54,10 @@ const resources = [
     },
   },
   {
-    href: './flyers',
+    href: './store',
     name: 'Employee Store',
     description:
-      'Printable fliers with QR codes for break rooms & desks.',
+      'Employee pricing on premium brands.',
     icon: UsersIcon,
     pattern: {
       y: 22,
