@@ -1,24 +1,52 @@
-import { NextResponse } from 'next/server';
-import { employerData } from '@/data/employerData';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { CodeParam } from '../CodeParam.jsx'
+import { AccessLink } from '../AccessLink.jsx'
+import {AccessCodeBox} from "../AccessCodeBox";
+import {AccessQRCode} from "../AccessQRCode.jsx";
+import { CompanyName } from '../CompanyName.jsx'
+import { Rollout } from '../Rollout.jsx'
+import { Benefits } from '../Benefits.jsx'
+import { VideoPlayer } from '@/components/VideoPlayer.jsx'
+import {Col} from "../../../components/mdx";
+import { ValidateCode } from '@/app/[code]/ValidateCode.jsx'
 
-export async function GET(req, { params }) {
-    const { code } = params;
+<ValidateCode />
+<div className="relative">
 
-    const employer = employerData.find(e => e.access_code === code);
-    const employerName = employer?.public_employer_name ?? 'Your Company';
+<div className="relative min-h-screen">
 
-    const filePath = path.join(process.cwd(), 'public', 'templates', 'one-sheet1.html');
-    let html = await fs.readFile(filePath, 'utf8');
+#  Launch Guide 🚀
+## <CompanyName />
+Previ is a workplace benefit that gives employees access to private pricing on wireless plans, home & auto insurance, and premium shopping—all with concierge support to make enrollment and switching plans easy.
 
-    html = html
-        .replaceAll('{{employerName}}', employerName)
-        .replaceAll('{{code}}', code);
+This guide is designed to save you time while making it simple to roll out Previ to your team. With pre-written communications, a launch timeline, and support resources, you’ll have everything you need to drive awareness and engagement.
 
-    return new NextResponse(html, {
-        headers: {
-            'Content-Type': 'text/html; charset=utf-8'
-        }
-    });
-}
+<div className="not-prose mt-6 mb-16 flex gap-3">
+    <Button href="./quickstart" arrow="right">
+        <>Quickstart</>
+    </Button>
+    <Button href="./overview" variant="outline">
+        <>Explore Previ Rollout</>
+    </Button>
+</div>
+
+
+---
+## Quickshare Enrollment Link {{ tag: 'PRIVATE ACCESS', label: 'Share with employees.' }}
+<Row>
+    <Col>
+        #### Enrollment URL for *<CompanyName />* Employees:
+        <AccessCodeBox/>
+    </Col>
+    <Col>
+        <AccessQRCode/>
+    </Col>
+</Row>
+
+
+
+<Rollout />
+
+<Benefits />
+
+    </ div>
+</ div>
