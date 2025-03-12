@@ -66,7 +66,7 @@ export const Header = forwardRef(function Header({ className, ...props }, ref) {
                 'bg-zinc-900/7.5 dark:bg-white/7.5'
             )}
         />
-        <Search />
+        {/*<Search />*/}
         <div className="flex items-center gap-5 lg:hidden">
           <MobileNavigation />
           {/* 2) Render your PNG instead of <Logo /> */}
@@ -90,7 +90,7 @@ export const Header = forwardRef(function Header({ className, ...props }, ref) {
           </nav>
           <div className="hidden md:block md:h-5 md:w-px md:bg-zinc-900/10 md:dark:bg-white/15" />
           <div className="flex gap-4">
-            <MobileSearch />
+            {/*<MobileSearch />*/}
              <ThemeToggle />
           </div>
           <div className="hidden min-[416px]:contents">

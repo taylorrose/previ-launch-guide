@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1">
+    <title>Previ Employee Benefit</title>
+    <style>
+        @font-face {
+            font-family: 'ABCArizonaFlareMedium';
+            src: url('/fonts/ABCArizonaFlare-Medium.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'GilroyMedium';
+            src: url('/fonts/gilroy-medium.otf') format('opentype');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'GilroyMedium', Arial, sans-serif;
+            background-color: #F4F0EB;
+            color: #222;
+            width: 100%;
+        }
+
+        .header {
+            background-image: url('/images/dark-background.svg');
+            background-size: cover;
+            padding: 50px;
+            color: white;
+            text-align: left;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: 'ABCArizonaFlareMedium', Arial, sans-serif;
+            font-size: 50px;
+            margin: 0;
+        }
+
+        .header p {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        .section {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .footer {
+            padding: 30px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .access-code {
+            background-color: #aaa;
+            color: #fff;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .qr-code {
+            width: 120px;
+            height: 120px;
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <img class="logo" src="/images/logos/previ_logo_light_medium.png" alt="Previ Logo">
+    <h1>You're in.</h1>
+    <p>{{employerName}} employees can save $1,359/yr on average with Previ.</p>
+</div>
+
+<div class="footer">
+    <div class="section">
+        <div class="section-title">📱 Starting at $20/line</div>
+        <div class="features">
+            Unlimited premium data, talk and text<br>
+            No contracts<br>
+            Plans for watches & tablets available<br>
+            All activation fees waived<br>
+            Roll over current device financing to Previ<br>
+            Bring your device and keep your phone number
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">💰 Price Monitoring & Savings</div>
+        <div class="features">
+            Nationwide insurance coverage<br>
+            Top carriers<br>
+            Price Monitoring<br>
+            Annual coverage and rate assessment<br>
+            Concierge service<br>
+            Up to $1,000 annual savings
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🏷️ Exclusive Guest Pass</div>
+        <div class="features">
+            Employee-equivalent pricing<br>
+            Premium brands<br>
+            Limited restrictions<br>
+            New partners monthly
+        </div>
+    </div>
+
+    <p>
+        Get exclusive access to superior pricing through a <strong>$99/yr Previ Membership.</strong><br>
+        Employees who sign up in the first 60 days get the first year membership fee waived.
+    </p>
+
+    <p>
+        Get started at previ.com, use access code
+        <span class="access-code">{{code}}</span>
+    </p>
+
+    <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://previ.com/access/{{code}}" alt="QR Code">
+
+    <div class="footer-note">
+        For help visit our FAQs on previ.com or text us at (801) 437-0620.
+    </div>
+</div>
+</body>
+</html>
