@@ -9,26 +9,16 @@ export async function GET(request, { params }) {
   // Find employer data
   const employer = employerData.find((entry) => entry.access_code === code);
   const employerName = employer?.public_employer_name ?? 'Your Company';
-  const enrollmentLink = `https://previ.com/access/${code}`;
+  const enrollmentLink = `https://previ.com/access/${code}?utm_source=employer&utm_medium=email&utm_campaign=${template}&utm_content=${encodeURIComponent(employerName)}`;
+
+  // Calculate the last day of the next month
+  const today = new Date();
+  const nextMonth = new Date(today.getFullYear(), today.getMonth() + 2, 0); // Last day of next month
+  const deadline = nextMonth.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
   // Paths for subject and formatted email templates
-  const subjectPath = path.join(
-    process.cwd(),
-    'public',
-    'templates',
-    'emails',
-    template,
-    'subject.html'
-  );
-
-  const templatePath = path.join(
-    process.cwd(),
-    'public',
-    'templates',
-    'emails',
-    template,
-    'formatted.html'
-  );
+  const subjectPath = path.join(process.cwd(), 'public', 'templates', 'emails', template, 'subject.html');
+  const templatePath = path.join(process.cwd(), 'public', 'templates', 'emails', template, 'formatted.html');
 
   let subjectContent;
   let htmlContent;
@@ -39,7 +29,8 @@ export async function GET(request, { params }) {
     subjectContent = subjectContent
       .replaceAll('{{employerName}}', employerName)
       .replaceAll('{{enrollmentLink}}', enrollmentLink)
-      .replaceAll('{{code}}', code);
+      .replaceAll('{{code}}', code)
+      .replaceAll('{{deadline}}', deadline);
   } catch (error) {
     subjectContent = 'New Employee Benefit'; // Default subject if file not found
   }
@@ -50,7 +41,8 @@ export async function GET(request, { params }) {
     htmlContent = htmlContent
       .replaceAll('{{employerName}}', employerName)
       .replaceAll('{{enrollmentLink}}', enrollmentLink)
-      .replaceAll('{{code}}', code);
+      .replaceAll('{{code}}', code)
+      .replaceAll('{{deadline}}', deadline);
   } catch (error) {
     return NextResponse.json({ error: 'Email template not found.' }, { status: 404 });
   }
@@ -85,7 +77,7 @@ export async function GET(request, { params }) {
       .subject-container {
         display: flex;
         align-items: center;
-        justify-content: space-between; /* Ensures button is on the right */
+        justify-content: space-between;
         background-color: white;
         padding: 10px 15px;
         border: 1px solid #ddd;
