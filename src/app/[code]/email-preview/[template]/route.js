@@ -118,10 +118,25 @@ export async function GET(request, { params }) {
       ${htmlContent}
     </div>
     <br>
-    <button onclick="copyHTML()">
-      <i class="fa-solid fa-copy"></i> Copy HTML Formatting
-    </button>
+<div style="display:flex; align-items:center; margin-top:10px;">
+    <a href="../quickstart" style="
+        margin-right:40px;
+        font-size:16px;
+        text-decoration:none;
+        color:#22c55e;
+        cursor:pointer;
+    ">
+        ← Back to Quickstart
+    </a>
 
+    <button onclick="copyHTML()">
+        <i class="fa-solid fa-copy"></i> Copy HTML Formatting
+    </button>
+</div>
+
+
+
+    
     <script>
       async function copySubject() {
         const subjectText = document.getElementById("subject-content").innerText;
