@@ -378,5 +378,5 @@ export const employerData = [
   {"access_code":"ver7pel","public_employer_name":"Vertiv "},
   {"access_code":"prkrjxy","public_employer_name":"Perkspot"},
   {"access_code":"kyr5geg","public_employer_name":"Kyruus Health"},
-  {"access_code":"envzuza","public_employer_name":"Enveda Wireless Benefit Overview"}
+  {"access_code":"envzuza","public_employer_name":"Enveda"}
 ]
