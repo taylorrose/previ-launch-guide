@@ -104,37 +104,36 @@
             left: 75px;
             right: 75px;
             bottom: 75px;
-            /* We also have top content bridging the half, so enough vertical space here. */
         }
 
         .highlight {
             font-size: 80px;
-            margin: 0 0 75px;
+            margin: 0 0 150px;
             line-height: 1.2;
         }
 
         .sub-text {
             font-size: 50px;
             line-height: 1.4;
-            margin: 0 0 350px;  /* leaves a gap before the final row */
+            margin: 0 0 350px;
         }
 
-        /* The final CTA row with code + QR side by side */
+        /* CTA row with code & QR side by side, bottom-aligned */
         .cta-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-end; /* bottom-align text & QR */
             font-size: 50px;
         }
 
         .access-text {
-            font-size: 60px; /* slightly smaller than highlight/sub-text */
+            font-size: 60px;
             line-height: 1.4;
         }
 
         /* The code box for {{code}} */
         .access-code {
-            background-color: #bfb5a6; /* or whatever color you like */
+            background-color: #bfb5a6;
             color: #fff;
             padding: 10px 20px;
             margin-left: 8px;
@@ -188,22 +187,21 @@
             Employees save $2,359/yr on average with Previ.
         </div>
 
-        <!-- Smaller text block -->
+        <!-- Break text into 2 lines with <br> -->
         <div class="sub-text">
-            Employees who sign up in the first 60 days get the
+            Employees who sign up in the first 60 days get the<br>
             first year annual enrollment fee waived.
         </div>
 
-        <!-- CTA row with code & QR side by side -->
+        <!-- CTA row with code & QR side by side, aligned at the bottom -->
         <div class="cta-row">
             <div class="access-text">
                 Get started at previ.com, use access code
                 <span class="access-code">{{code}}</span>
             </div>
-
             <img
                     class="qr-code"
-                    src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://previ.com/access/{{code}}?utm_source=qr&utm_medium=pdf&utm_campaign=one-pager1"
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://previ.com/access/{{code}}?utm_source=employer&utm_medium=flyer&utm_campaign=one-sheet-three-up&utm_content={{employerName}}"
                     alt="QR Code"
             />
         </div>
