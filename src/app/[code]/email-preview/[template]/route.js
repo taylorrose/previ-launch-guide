@@ -158,25 +158,54 @@ export async function GET(request, { params }) {
         }
       }
 
-      async function copyHTML() {
-        const emailContent = document.getElementById("email-content");
-        if (!emailContent) return;
+async function copyHTML() {
+    const emailContent = document.getElementById("email-content");
+    if (!emailContent) return;
 
-        try {
-          const htmlContent = emailContent.innerHTML;
+    try {
+        // Clone the email content to avoid modifying the original
+        let clonedContent = emailContent.cloneNode(true);
 
-          await navigator.clipboard.write([
-            new ClipboardItem({
-              "text/html": new Blob([htmlContent], { type: "text/html" }),
-              "text/plain": new Blob([emailContent.innerText], { type: "text/plain" }),
-            }),
-          ]);
-
-          alert("Email HTML copied! You can now paste it into Gmail, Outlook, or another email client.");
-        } catch (err) {
-          alert("Failed to copy:", err);
+        // Convert images to base64
+        const imgElements = clonedContent.querySelectorAll("img");
+        for (let img of imgElements) {
+            if (img.src.startsWith("data:")) continue; // Skip if already base64
+            const base64 = await imageToBase64(img.src);
+            if (base64) {
+                img.src = base64; // Replace with base64 data URI
+            }
         }
-      }
+
+        const htmlContent = clonedContent.innerHTML;
+        
+        await navigator.clipboard.write([
+            new ClipboardItem({
+                "text/html": new Blob([htmlContent], { type: "text/html" }),
+                "text/plain": new Blob([clonedContent.innerText], { type: "text/plain" }),
+            }),
+        ]);
+
+        alert("Email HTML copied! You can now paste it into Gmail, Outlook, or another email client.");
+    } catch (err) {
+        alert("Failed to copy:", err);
+    }
+}
+
+// Helper function: Convert an image URL to base64
+async function imageToBase64(imgUrl) {
+    try {
+        const response = await fetch(imgUrl);
+        const blob = await response.blob();
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.readAsDataURL(blob);
+        });
+    } catch (error) {
+        console.error("Failed to convert image:", imgUrl, error);
+        return null;
+    }
+}
     </script>
 
   </body>

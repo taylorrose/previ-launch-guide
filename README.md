@@ -1,5 +1,21 @@
 # Protocol
 
+
+Postgres SQL to update
+
+``` postgresql
+SELECT DISTINCT ON (pm.employer_access_code) 
+    pm.employer_access_code AS access_code, 
+    e.name AS public_employer_name
+FROM 
+    dashboard.prospective_member_summary pm
+JOIN 
+    public.employer e ON pm.employer_id = e.id
+ORDER BY 
+    pm.employer_access_code, e.name;
+```
+
+
 Protocol is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
 
 ## Getting started

@@ -1,58 +1,79 @@
-<!-- pricing-plan-email.html -->
+<!-- compare-save-pricing-email-with-image-button.html -->
 <div style="max-width: 100%; font-family: Arial, sans-serif; line-height: 1.6; color: #000; padding: 10px 20px 20px;">
 
     <!-- Title -->
     <h2 style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
-        {{employerName}} Employees Now Have Access to Private Pricing Plans
+        Compare and Save Employee Pricing on Phone Plans + Insurance
     </h2>
 
     <!-- Intro -->
     <p>Hi team,</p>
     <p>
-        As part of our commitment to providing meaningful benefits for our employees, we are pleased to introduce a new opportunity for membership in
-        <strong>private, unadvertised pricing</strong> on premium mobile plans.
+        We’re expanding your employee benefits.
     </p>
     <p>
-        We’ve recently joined a private pricing network that gives you and your family access to exclusive rates not available to the public.
+        Many of you have already enrolled in Previ for employee pricing on wireless plans. Now, {{employerName}} employees can also unlock exclusive savings on home and auto insurance—through the major carriers and providers.
     </p>
 
-    <!-- Voluntary Benefit Section -->
-    <p>
-        <em>
-            This is a <strong>voluntary benefit</strong> available to all {{employerName}} employees. You can enroll as many lines as you need for your household, and
-            <strong>your plan stays with you—even if you leave {{employerName}}.</strong>
-        </em>
-    </p>
-
-    <!-- Features -->
-    <ul style="list-style-type: none; padding-left: 0;">
-        <li>✔ <strong>Unlimited</strong> talk, text, and data</li>
-        <li>✔ <strong>$20 per line</strong> (T-Mobile)</li>
-        <li>✔ <strong>No contracts, no activation fees</strong></li>
-        <li>✔ <strong>Keep your phones &amp; numbers</strong></li>
-    </ul>
-
-    <!-- CTA Section -->
-    <div style="background-color: #f4f4f4; text-align: center; border-radius: 5px; padding: 15px; margin: 20px 0;">
-        <p>
-            <em>
-                Use our
-                <a href="{{enrollmentLink}}" style="color: #007bff; text-decoration: none;">
-                    {{employerName}} Access Link
-                </a>
-                to Check Your Private Pricing Now:
-            </em>
-        </p>
-        <a href="{{enrollmentLink}}" style="display: inline-block; background-color: #000; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-size: 16px; font-weight: bold;">
-            See Employee Phone Pricing
+    <!-- Savings Image (Linked to Enrollment) -->
+    <div style="text-align: center; margin: 20px 0;">
+        <a href="{{enrollmentLink}}" target="_blank">
+            <img src="/images/wireless_insurance_savings.png" alt="Wireless and Insurance Savings" style="max-width: 100%; height: auto; border-radius: 5px;" />
         </a>
     </div>
 
-    <!-- Disclaimer -->
-    <p style="font-size: 14px; font-style: italic; color: #555; text-align: center;">
-        This benefit is exclusive to {{employerName}} employees and accessible only through the private link above.
-        <br />
-        You are welcome to enroll as many lines as you need for your household, but please do not share your access outside of our team.
+    <!-- Enrollment Information -->
+    <p>
+        We have a limited rollout period for employees to waive their annual enrollment fee. Employees can now use Previ’s Bill Compare Tool to see personalized savings. By completing a bill comparison, they will cover your first-year enrollment fee ($99).
     </p>
+    <p>
+        To lock in free enrollment during the rollout period:
+    </p>
+    <ul>
+        <li><strong>For wireless:</strong> Upload your phone bill.</li>
+        <li><strong>For insurance:</strong> Upload your home or auto policy.</li>
+    </ul>
+    <p>
+        Previ will compare your current rate to <strong>private employee pricing</strong> and show you available options. This opportunity is part of the current <strong>enrollment period</strong>, so be sure to explore your options while it’s available.
+    </p>
+
+    <!-- CTA Section with Image Button -->
+    <div style="background-color: #f4f4f4; text-align: center; border-radius: 5px; padding: 15px; margin: 20px 0;">
+        <br>
+        <a href="{{enrollmentLink}}" target="_blank">
+            <img src="/images/button_compare_employee_prices_small.png" alt="Compare Employee Prices" style="max-width: 100%; height: auto; border-radius: 5px; border: none;" />
+        </a>
+        <p style="font-size: 14px; font-style: italic; color: #555; text-align: center;">
+            This benefit is exclusive to {{employerName}} employees and accessible only through the private link provided. You are welcome to enroll up to 10 lines for your household, but please do not share your access outside of our team.
+        </p>
+    </div>
+
+    <!-- Disclaimer -->
+
+
+    <!-- The Drop Section -->
+
+    <br>----<br>
+    <p>
+        While you’re there, you’ll also get access to <em>The Drop</em> where this month Pura is sharing their employee discounts, allowing {{employerName}} employees to shop like they work for the company.
+    </p>
+    <p style="font-size: 14px; font-style: italic; color: #555; text-align: center;">
+        [NEED PURA IMAGE BELOW]
+    </p>
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+        <thead>
+        <tr>
+            <th style="text-align: left; border-bottom: 2px solid #ddd; padding-bottom: 8px;">The Drop - Grand Opening</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="padding-top: 8px;">Shop like an employee at the brands you love.</td>
+        </tr>
+        <tr>
+            <td style="padding-top: 8px;"><strong>This month: Pura</strong></td>
+        </tr>
+        </tbody>
+    </table>
 
 </div>
