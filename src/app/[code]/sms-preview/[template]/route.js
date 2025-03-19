@@ -17,7 +17,7 @@ export async function GET(request, { params }) {
   const deadline = nextMonth.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
   // Paths for subject and formatted email templates
-  const templatePath = path.join(process.cwd(), 'public', 'templates', template, 'message.html');
+  const templatePath = path.join(process.cwd(), 'public', 'templates', template, 'sms.html');
 
   let htmlContent;
 
@@ -41,7 +41,7 @@ export async function GET(request, { params }) {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Email Preview</title>
+    <title>SMS Preview</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
       body {
@@ -79,7 +79,7 @@ export async function GET(request, { params }) {
     </style>
   </head>
   <body>
-    <h1>Slack / Teams Message</h1>
+    <h1>SMS / Text Message</h1>
     <!-- Email Body Container -->
     <div class="container" id="email-content">
       ${htmlContent}
@@ -98,14 +98,14 @@ export async function GET(request, { params }) {
     <button onclick="copyHTML()">
         <i class="fa-solid fa-copy"></i> Copy Message
     </button>
-       <a href="../sms-preview/${template}" style="
+           <a href="https://api.urlbox.com/v1/vGsAgTEIiyqn96rI/pdf?url=https%3A%2F%2Fwww.previ.guide%2F${code}%2Fpdf-preview&width=2550&height=3300&pdf_page_size=letter&pdf_background=true&pdf_dpi=300&pdf_margin=default&full_width=true&pdf_auto_crop=true" target="_blank" style="
         margin-left:40px;
         font-size:16px;
         text-decoration:none;
         color:#22c55e;
         cursor:pointer;
     ">
-        Next to Slack/Teams <i class="fa-solid fa-arrow-right"></i>
+        Download printable flyers<i class="fa-solid fa-arrow-right"></i>
     </a>
 </div>
     <script>
@@ -133,7 +133,7 @@ export async function GET(request, { params }) {
             }),
           ]);
 
-          alert("Message copied! You can now paste it into SMS, Text, Chirp or another communication platform.");
+          alert("Message copied! You can now paste it into Slack, Teams, or another messaging platform.");
         } catch (err) {
           alert("Failed to copy:", err);
         }
