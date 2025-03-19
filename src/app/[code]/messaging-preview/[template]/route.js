@@ -17,23 +17,10 @@ export async function GET(request, { params }) {
   const deadline = nextMonth.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
   // Paths for subject and formatted email templates
-  const subjectPath = path.join(process.cwd(), 'public', 'templates', template, 'subject.html');
-  const templatePath = path.join(process.cwd(), 'public', 'templates', template, 'formatted.html');
+  const templatePath = path.join(process.cwd(), 'public', 'templates', template, 'message.html');
 
-  let subjectContent;
   let htmlContent;
 
-  try {
-    // Read and process subject.html
-    subjectContent = await fs.readFile(subjectPath, 'utf-8');
-    subjectContent = subjectContent
-      .replaceAll('{{employerName}}', employerName)
-      .replaceAll('{{enrollmentLink}}', enrollmentLink)
-      .replaceAll('{{code}}', code)
-      .replaceAll('{{deadline}}', deadline);
-  } catch (error) {
-    subjectContent = 'New Employee Benefit'; // Default subject if file not found
-  }
 
   try {
     // Read and process formatted.html (email body)
@@ -42,8 +29,7 @@ export async function GET(request, { params }) {
       .replaceAll('{{employerName}}', employerName)
       .replaceAll('{{enrollmentLink}}', enrollmentLink)
       .replaceAll('{{code}}', code)
-      .replaceAll('{{deadline}}', deadline)
-      .replaceAll('{{template}}', template);
+      .replaceAll('{{deadline}}', deadline);
   } catch (error) {
     return NextResponse.json({ error: 'Email template not found.' }, { status: 404 });
   }
@@ -55,7 +41,7 @@ export async function GET(request, { params }) {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Messsage Preview</title>
+    <title>Email Preview</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
       body {
@@ -75,18 +61,6 @@ export async function GET(request, { params }) {
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         border-radius: 12px;
       }
-      .subject-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: white;
-        padding: 10px 15px;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        max-width: 800px;
-        width: 100%;
-        margin-bottom: 10px;
-      }
       button {
         cursor: pointer;
         padding: 8px 12px;
@@ -105,15 +79,7 @@ export async function GET(request, { params }) {
     </style>
   </head>
   <body>
-    <h1>Email Communication</h1>
-    <!-- Subject Line Container -->
-    <div class="subject-container">
-      <span class="subject-text"><strong>Subject:</strong> <span id="subject-content">${subjectContent}</span></span>
-      <button onclick="copySubject()">
-        <i class="fa-solid fa-copy"></i> Copy Subject Line
-      </button>
-    </div>
-
+    <h1>Slack / Teams Message</h1>
     <!-- Email Body Container -->
     <div class="container" id="email-content">
       ${htmlContent}
@@ -127,26 +93,12 @@ export async function GET(request, { params }) {
         color:#22c55e;
         cursor:pointer;
     ">
-        <i class="fa-solid fa-arrow-left"></i> Back to Quickstart
+        ← Back to Quickstart
     </a>
-
     <button onclick="copyHTML()">
-        <i class="fa-solid fa-copy"></i> Copy Formatted Email
+        <i class="fa-solid fa-copy"></i> Copy Message
     </button>
-        <a href="../messaging-preview/${template}" style="
-        margin-left:40px;
-        font-size:16px;
-        text-decoration:none;
-        color:#22c55e;
-        cursor:pointer;
-    ">
-        Next to Slack/Teams <i class="fa-solid fa-arrow-right"></i>
-    </a>
 </div>
-
-
-
-    
     <script>
       async function copySubject() {
         const subjectText = document.getElementById("subject-content").innerText;
@@ -172,7 +124,7 @@ export async function GET(request, { params }) {
             }),
           ]);
 
-          alert("Email HTML copied! You can now paste it into Gmail, Outlook, or another email client.");
+          alert("Message copied! You can now paste it into Slack, Teams, or another messaging platform.");
         } catch (err) {
           alert("Failed to copy:", err);
         }
