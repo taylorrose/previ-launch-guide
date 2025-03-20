@@ -18,6 +18,7 @@ export async function GET(request, { params }) {
 
   // Paths for subject and formatted email templates
   const templatePath = path.join(process.cwd(), 'public', 'templates', template, 'sms.html');
+  const commsNumber = template.match(/\d$/)?.[0] || null;
 
   let htmlContent;
 
@@ -79,7 +80,7 @@ export async function GET(request, { params }) {
     </style>
   </head>
   <body>
-    <h1>SMS / Text Message</h1>
+   <h1>${employerName} SMS / Text Message #${commsNumber}</h1>
     <!-- Email Body Container -->
     <div class="container" id="email-content">
       ${htmlContent}
