@@ -105,7 +105,7 @@ export async function GET(request, { params }) {
         color:#22c55e;
         cursor:pointer;
     ">
-        Next to Slack/Teams <i class="fa-solid fa-arrow-right"></i>
+        Next to SMS / Text Message <i class="fa-solid fa-arrow-right"></i>
     </a>
 </div>
     <script>
