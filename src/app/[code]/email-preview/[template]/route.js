@@ -19,7 +19,7 @@ export async function GET(request, { params }) {
   // Paths for subject and formatted email templates
   const subjectPath = path.join(process.cwd(), 'public', 'templates', template, 'subject.html');
   const templatePath = path.join(process.cwd(), 'public', 'templates', template, 'formatted.html');
-
+  const commsNumber = template.match(/\d$/)?.[0] || null;
   let subjectContent;
   let htmlContent;
 
@@ -55,7 +55,7 @@ export async function GET(request, { params }) {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Messsage Preview</title>
+    <title>${employerName} Email Preview</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
       body {
@@ -105,7 +105,7 @@ export async function GET(request, { params }) {
     </style>
   </head>
   <body>
-    <h1>Email Communication</h1>
+    <h1>${employerName} Email Communication #${commsNumber}</h1>
     <!-- Subject Line Container -->
     <div class="subject-container">
       <span class="subject-text"><strong>Subject:</strong> <span id="subject-content">${subjectContent}</span></span>
