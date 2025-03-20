@@ -134,7 +134,7 @@ export async function GET(request, { params }) {
             }),
           ]);
 
-          alert("Message copied! You can now paste it into SMS, Text, Chirp or another communication platform.");
+          alert("Message copied! You can now paste it into Slack, Teams, or another messaging platform.");
         } catch (err) {
           alert("Failed to copy:", err);
         }

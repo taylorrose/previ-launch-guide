@@ -133,8 +133,7 @@ export async function GET(request, { params }) {
               "text/plain": new Blob([emailContent.innerText], { type: "text/plain" }),
             }),
           ]);
-
-          alert("Message copied! You can now paste it into Slack, Teams, or another messaging platform.");
+          alert("Message copied! You can now paste it into SMS, Text, Chirp or another communication platform.");
         } catch (err) {
           alert("Failed to copy:", err);
         }
