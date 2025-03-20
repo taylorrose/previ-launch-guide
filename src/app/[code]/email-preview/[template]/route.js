@@ -120,7 +120,7 @@ export async function GET(request, { params }) {
     </div>
     <br>
 <div style="display:flex; align-items:center; margin-top:10px;">
-    <a href="../quickstart" style="
+    <a href="../quickstart#week-${commsNumber}" style="
         margin-right:40px;
         font-size:16px;
         text-decoration:none;
