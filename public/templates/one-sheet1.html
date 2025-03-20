@@ -167,9 +167,9 @@
     <!-- HERO TEXT -->
     <div class="hero-content">
 <!--        <div class="hero-title">The biggest upgrade<br>to benefits since the 401k.</div>-->
-        <div class="hero-title">Employee Pricing on Phone Plans,<br>  Insurance, and Premium Brands</div>
+        <div class="hero-title">Employee pricing on phone plans,<br>  insurance, and premium brands</div>
         <p class="hero-subtitle">
-           Now, {{employerName}} employees can enroll in Previ. Their team is available to help build a plan to lower your monthly expenses.
+           Now, {{employerName}} employees can enroll in Previ to instantly lower monthly expenses.
         </p>
     </div>
 
@@ -189,7 +189,7 @@
 
         <!-- Break text into 2 lines with <br> -->
         <div class="sub-text">
-            Employees who sign up in the first 60 days get the<br>
+            {{employerName}} Employees who sign up in the first 60 days get the<br>
             first year annual enrollment fee waived.
         </div>
 
@@ -197,11 +197,11 @@
         <div class="cta-row">
             <div class="access-text">
                 Get started at previ.com, use access code
-                <span class="access-code">{{code}}</span>
+                <span class="access-code">{{upperCode}}</span>
             </div>
             <img
                     class="qr-code"
-                    src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://previ.com/access/{{code}}?utm_source=employer&utm_medium=flyer&utm_campaign=one-sheet-three-up&utm_content={{employerName}}"
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://previ.com/access/{{code}}?utm_source=employer&utm_medium=printable&utm_campaign=one-sheet-three-up&utm_content={{employerName}}"
                     alt="QR Code"
             />
         </div>
