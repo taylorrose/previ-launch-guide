@@ -225,12 +225,13 @@ function NavigationGroup({ group, className }) {
                 <NavLink href={linkPath} active={isActivePage}>
                   {link.title}
                 </NavLink>
-                {pathname === linkPath && link.sections?.length > 0 && (
+                {link.sections?.length > 0 && (
                   <ul>
                     {link.sections.map((section) => {
                       const isSubActive =
-                        currentHash === `#${section.id}` ||
-                        visibleSections.includes(section.id)
+                        pathname === linkPath &&
+                        (currentHash === `#${section.id}` ||
+                          visibleSections.includes(section.id))
 
                       return (
                         <li key={section.id}>
@@ -246,6 +247,27 @@ function NavigationGroup({ group, className }) {
                     })}
                   </ul>
                 )}
+                {/*{pathname === linkPath && link.sections?.length > 0 && (*/}
+                {/*  <ul>*/}
+                {/*    {link.sections.map((section) => {*/}
+                {/*      const isSubActive =*/}
+                {/*        currentHash === `#${section.id}` ||*/}
+                {/*        visibleSections.includes(section.id)*/}
+
+                {/*      return (*/}
+                {/*        <li key={section.id}>*/}
+                {/*          <NavLink*/}
+                {/*            href={`${linkPath}#${section.id}`}*/}
+                {/*            isSubsection*/}
+                {/*            active={isSubActive}*/}
+                {/*          >*/}
+                {/*            {section.title}*/}
+                {/*          </NavLink>*/}
+                {/*        </li>*/}
+                {/*      )*/}
+                {/*    })}*/}
+                {/*  </ul>*/}
+                {/*)}*/}
               </li>
             )
           })}
