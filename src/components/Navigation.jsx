@@ -2,7 +2,8 @@
 
 import { useRef } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useRouter, usePathname, useParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { AnimatePresence, motion, useIsPresent } from 'framer-motion'
 
@@ -58,8 +59,11 @@ function NavLink({
     </Link>
   )
 }
+function VisibleSectionHighlight({ group }) {
+  const { code } = useParams()
+  const pathname = usePathname()
+  const router = useRouter()
 
-function VisibleSectionHighlight({ group, pathname }) {
   let [sections, visibleSections] = useInitialValue(
     [
       useSectionStore((s) => s.sections),
@@ -68,6 +72,37 @@ function VisibleSectionHighlight({ group, pathname }) {
     useIsInsideMobileNavigation(),
   )
 
+  const [currentHash, setCurrentHash] = useState('')
+
+  useEffect(() => {
+    const updateHash = () => {
+      setCurrentHash(window.location.hash)
+    }
+
+    updateHash()
+
+    const originalPushState = window.history.pushState
+    const originalReplaceState = window.history.replaceState
+
+    window.history.pushState = function (...args) {
+      originalPushState.apply(this, args)
+      updateHash()
+    }
+
+    window.history.replaceState = function (...args) {
+      originalReplaceState.apply(this, args)
+      updateHash()
+    }
+
+    window.addEventListener('popstate', updateHash)
+
+    return () => {
+      window.history.pushState = originalPushState
+      window.history.replaceState = originalReplaceState
+      window.removeEventListener('popstate', updateHash)
+    }
+  }, [router])
+
   let isPresent = useIsPresent()
   let firstVisibleSectionIndex = Math.max(
     0,
@@ -75,13 +110,24 @@ function VisibleSectionHighlight({ group, pathname }) {
       (section) => section.id === visibleSections[0],
     ),
   )
+
   let itemHeight = remToPx(2)
   let height = isPresent
     ? Math.max(1, visibleSections.length) * itemHeight
     : itemHeight
-  let top =
-    group.links.findIndex((link) => link.href === pathname) * itemHeight +
-    firstVisibleSectionIndex * itemHeight
+
+  let activePageIndex = group.links.findIndex((link) => {
+    const [linkPath, linkHash] = link.href.split('#')
+    const resolvedLink = `/${code}/${linkPath.replace('./', '')}`
+
+    if (pathname !== resolvedLink) return false
+    if (!linkHash && !currentHash) return true
+    return currentHash === `#${linkHash}`
+  })
+
+  if (activePageIndex === -1) return null
+
+  let top = activePageIndex * itemHeight + firstVisibleSectionIndex * itemHeight
 
   return (
     <motion.div
@@ -95,11 +141,57 @@ function VisibleSectionHighlight({ group, pathname }) {
   )
 }
 
-function ActivePageMarker({ group, pathname }) {
-  let itemHeight = remToPx(2)
-  let offset = remToPx(0.25)
-  let activePageIndex = group.links.findIndex((link) => link.href === pathname)
-  let top = offset + activePageIndex * itemHeight
+function ActivePageMarker({ group }) {
+  const { code } = useParams()
+  const pathname = usePathname()
+  const router = useRouter()
+  const itemHeight = remToPx(2)
+  const offset = remToPx(0.25)
+
+  const [currentHash, setCurrentHash] = useState('')
+
+  useEffect(() => {
+    const updateHash = () => {
+      setCurrentHash(window.location.hash)
+    }
+
+    updateHash() // Set hash on initial mount
+
+    // Listen to Next.js router events
+    const originalPushState = window.history.pushState
+    const originalReplaceState = window.history.replaceState
+
+    window.history.pushState = function (...args) {
+      originalPushState.apply(this, args)
+      updateHash()
+    }
+
+    window.history.replaceState = function (...args) {
+      originalReplaceState.apply(this, args)
+      updateHash()
+    }
+
+    window.addEventListener('popstate', updateHash)
+
+    return () => {
+      window.history.pushState = originalPushState
+      window.history.replaceState = originalReplaceState
+      window.removeEventListener('popstate', updateHash)
+    }
+  }, [router])
+
+  let activePageIndex = group.links.findIndex((link) => {
+    const [linkPath, linkHash] = link.href.split('#')
+    const resolvedLink = `/${code}/${linkPath.replace('./', '')}`
+
+    if (pathname !== resolvedLink) return false
+    if (!linkHash && !currentHash) return true
+    return currentHash === `#${linkHash}`
+  })
+
+  if (activePageIndex === -1) return null
+
+  const top = offset + activePageIndex * itemHeight
 
   return (
     <motion.div
@@ -114,17 +206,18 @@ function ActivePageMarker({ group, pathname }) {
 }
 
 function NavigationGroup({ group, className }) {
-  // If this is the mobile navigation then we always render the initial
-  // state, so that the state does not change during the close animation.
-  // The state will still update when we re-open (re-render) the navigation.
   let isInsideMobileNavigation = useIsInsideMobileNavigation()
-  let [pathname, sections] = useInitialValue(
-    [usePathname(), useSectionStore((s) => s.sections)],
+  let [sections] = useInitialValue(
+    [useSectionStore((s) => s.sections)],
     isInsideMobileNavigation,
   )
 
-  let isActiveGroup =
-    group.links.findIndex((link) => link.href === pathname) !== -1
+  const { code } = useParams()
+  const pathname = usePathname()
+
+  const isActiveGroup = group.links.some((link) =>
+    pathname.startsWith(`/${code}/${link.href.replace('./', '')}`),
+  )
 
   return (
     <li className={clsx('relative mt-6', className)}>
@@ -150,41 +243,40 @@ function NavigationGroup({ group, className }) {
           )}
         </AnimatePresence>
         <ul role="list" className="border-l border-transparent">
-          {group.links.map((link) => (
-            <motion.li key={link.href} layout="position" className="relative">
-              <NavLink href={link.href} active={link.href === pathname}>
-                {link.title}
-              </NavLink>
-              <AnimatePresence mode="popLayout" initial={false}>
-                {link.href === pathname && sections.length > 0 && (
-                  <motion.ul
-                    role="list"
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: 1,
-                      transition: { delay: 0.1 },
-                    }}
-                    exit={{
-                      opacity: 0,
-                      transition: { duration: 0.15 },
-                    }}
-                  >
-                    {sections.map((section) => (
-                      <li key={section.id}>
-                        <NavLink
-                          href={`${link.href}#${section.id}`}
-                          tag={section.tag}
-                          isAnchorLink
-                        >
-                          {section.title}
-                        </NavLink>
-                      </li>
-                    ))}
-                  </motion.ul>
-                )}
-              </AnimatePresence>
-            </motion.li>
-          ))}
+          {group.links.map((link) => {
+            const linkPath = `/${code}/${link.href.replace('./', '')}`
+            const active = pathname === linkPath
+
+            return (
+              <motion.li key={link.href} layout="position" className="relative">
+                <NavLink href={linkPath} active={active}>
+                  {link.title}
+                </NavLink>
+                <AnimatePresence mode="popLayout" initial={false}>
+                  {active && sections.length > 0 && (
+                    <motion.ul
+                      role="list"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1, transition: { delay: 0.1 } }}
+                      exit={{ opacity: 0, transition: { duration: 0.15 } }}
+                    >
+                      {sections.map((section) => (
+                        <li key={section.id}>
+                          <NavLink
+                            href={`${linkPath}#${section.id}`}
+                            tag={section.tag}
+                            isAnchorLink
+                          >
+                            {section.title}
+                          </NavLink>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </motion.li>
+            )
+          })}
         </ul>
       </div>
     </li>
@@ -197,6 +289,7 @@ export const navigation = [
     links: [
       { title: 'Introduction', href: './introduction' },
       { title: 'Quickstart', href: './quickstart' },
+      { title: 'Communication Templates', href: './comms' },
       { title: 'Emails', href: './comms#email-communication' },
       { title: 'Slack / Teams Posts', href: './comms#slack-and-teams-posts' },
       { title: 'SMS Sends', href: './comms#sms-sends' },
