@@ -1,11 +1,12 @@
 import { ValidateCode } from '@/app/[code]/ValidateCode.jsx'
-import { ScrollSpy } from '../ScrollSpy'  // <- path to your ScrollSpy
+import { ScrollSpy } from '../ScrollSpy'
 import { CompanyName } from '../CompanyName.jsx'
 import { GeneratePDFLink } from '../GeneratePDFLink.jsx'
-
+import { CommsPreviewLink } from '../CommsPreviewLink.jsx'
 
 <ValidateCode />
 <ScrollSpy />
+
 # Communication Templates for <CompanyName />
 
 Use these pre-built communication templates to quickly announce and follow up on your Previ rollout.
@@ -21,12 +22,19 @@ Email provides a professional, trusted, and detailed communication channel that 
     Send emails consistently and align subject lines with core benefit messaging. Clearly state deadlines and use action-oriented language to encourage immediate enrollment.
 </Note>
 
-| Week       | Action                | Description           | Template                |
-|------------|-----------------------|-----------------------|-------------------------|
-| 1     | Initial Announcement  | Introduces the Previ benefit clearly and professionally, establishing its legitimacy and value to employees. Provides comprehensive details on what the benefit includes, clearly explains the ease of enrollment, and sets the stage for subsequent messages. | [Email Template →](./email-preview/relaunch1) |
-| 2     | Deadline Reminder     | Reinforces urgency by reminding employees of the approaching enrollment deadline. Motivates action among those who have delayed responding to the initial announcement, clearly communicating the benefit's time-sensitive nature. | [Email Template →](./email-preview/relaunch2) |
-| 3     | Follow-Up Reminder    | Serves as an additional prompt to employees who may have intended to act but have not yet enrolled. Keeps the benefit visible and emphasizes urgency without overwhelming or pressuring employees. | [Email Template →](./email-preview/relaunch3) |
-| Final  | Last Chance Reminder  | Maximizes urgency on the final enrollment day, clearly signaling a limited-time opportunity. Ensures last-minute enrollments by prompting immediate action from procrastinating or previously unresponsive employees. | [Email Template →](./email-preview/relaunch4) |
+| Week                | Action                  | Description                                                                                          | Template                                           |
+|---------------------|-------------------------|------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| 1                   | **Initial Announcement**| Introduces Previ benefit clearly and professionally, establishing legitimacy and value.             | <CommsPreviewLink path="email-preview" commsNumber="1" label="Email Template" /> |
+| 2                   | **Deadline Reminder**   | Reinforces urgency by reminding employees of the approaching enrollment deadline.                   | <CommsPreviewLink path="email-preview" commsNumber="2" label="Email Template" /> |
+| 3                   | **Follow-Up Reminder**  | Additional reminder to employees who intended to enroll but haven't yet completed the process.      | <CommsPreviewLink path="email-preview" commsNumber="3" label="Email Template" /> |
+| 3                   | **Last Chance Reminder**| Highlights final-day urgency to ensure last-minute enrollments are completed promptly.              | <CommsPreviewLink path="email-preview" commsNumber="4" label="Email Template" /> |
+
+*To save time, you can pre-schedule your emails in advance. Here’s how:*
+
+| Platform    | Steps to pre-schedule                                                |
+| ----------- | ------------------------------------------------------------ |
+| `Outlook` | *Click* the dropdown arrow next to **Send** → *Select* **Schedule Send**. |
+| `Gmail`   | *Click* the arrow next to **Send** → *Choose* **Schedule Send** → **Pick a date & time**. |
 
 ---
 
@@ -39,12 +47,19 @@ Slack and Microsoft Teams allow for short, conversational, and immediate interna
     Prioritize short, conversational messaging. Direct, concise reminders increase readability, engagement, and encourage employees to take immediate action.
 </Note>
 
-| Week       | Action                | Description           | Template                |
-|------------|-----------------------|-----------------------|-------------------------|
-| 1     | Initial Announcement  | Effectively introduces employees to Previ in a concise and engaging manner. Captures initial attention and curiosity, prompting immediate exploration of the benefit through an easy-to-click link. | [Slack/Teams Message →](./messaging-preview/relaunch1) |
-| 2     | Deadline Reminder     | Clearly communicates approaching deadlines to generate urgency and drive immediate action. Targets employees who have delayed or overlooked initial communications, prompting them to enroll before the opportunity ends. | [Slack/Teams Message →](./messaging-preview/relaunch2) |
-| 3     | Follow-Up Reminder    | Maintains awareness and reminds employees who intended to enroll but haven't yet. Reinforces the benefit without overwhelming employees, subtly reminding them of the upcoming deadline. | [Slack/Teams Message →](./messaging-preview/relaunch3) |
-| Final  | Last Chance Reminder  | Creates maximum urgency on the last day of enrollment, clearly highlighting this as the final opportunity. Drives immediate action, ensuring employees do not miss out due to oversight or procrastination. | [Slack/Teams Message →](./messaging-preview/relaunch3) |
+| Week                | Action                  | Description                                                                                          | Template                                                  |
+|---------------------|-------------------------|------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| 1                   | **Initial Announcement**| Quickly introduces Previ, captures immediate attention, prompting rapid exploration.                | <CommsPreviewLink path="messaging-preview" commsNumber="1" label="Slack/Teams Template" /> |
+| 2                   | **Deadline Reminder**   | Communicates clearly about approaching deadlines, prompting timely enrollments.                     | <CommsPreviewLink path="messaging-preview" commsNumber="2" label="Slack/Teams Template" /> |
+| 3                   | **Follow-Up Reminder**  | Keeps Previ visible and gently reminds employees who haven't acted yet.                             | <CommsPreviewLink path="messaging-preview" commsNumber="3" label="Slack/Teams Template" /> |
+| 3                   | **Last Chance Reminder**| Clearly emphasizes final opportunity, driving immediate enrollment actions.                         | <CommsPreviewLink path="messaging-preview" commsNumber="4" label="Slack/Teams Template" /> |
+
+*To save time, you can pre-schedule your Slack or Teams posts in advance. Here’s how:*
+
+| Platform            | Steps to pre-schedule                                    |
+| ------------------- | ------------------------------------------------------------ |
+| `Slack`           | 1. *Open* the [Slack](slack://open) channel where you want to post.<br/>2. *Paste* the **Slack Message Template**.<br/>3. *Click* the small clock icon next to the send button.<br/>4. *Choose* the date & time you want the message to go out.<br/>5. *Click* **Schedule Message**. |
+| `Microsoft Teams` | 1. *Open* the [Teams](msteams://) channel where you want to post.<br/>2. *Paste* the Previ **Teams Message Template**.<br/>3. *Click* the ellipsis (three dots) menu below the message.<br/>4. *Select* **Schedule Send** and *choose* the date & time.<br/>5. *Click* **Schedule Post**. |
 
 ---
 
@@ -57,12 +72,12 @@ SMS messaging provides direct, immediate, and highly-visible communication strai
     Use SMS for short, urgent messages with explicit deadlines and clear calls-to-action. Always include a direct link for instant employee action.
 </Note>
 
-| Week       | Action                | Description           | Template                |
-|------------|-----------------------|-----------------------|-------------------------|
-| 1     | Initial Announcement  | Immediately captures employees' attention by introducing the new Previ benefit succinctly. Establishes initial curiosity and encourages immediate click-through for benefit exploration. | [SMS Template →](./sms-preview/relaunch1) |
-| 2     | Deadline Reminder     | Generates urgency through clear reminders of approaching deadlines, compelling immediate action. Specifically targets employees who delayed responding earlier, prompting enrollment before the benefit expires. | [SMS Template →](./sms-preview/relaunch2) |
-| 3     | Follow-Up Reminder    | Briefly reinforces the benefit and upcoming deadline, ensuring continued employee awareness. Serves as a gentle nudge to motivate employees who may intend to act but have not yet enrolled. | [SMS Template →](./sms-preview/relaunch3) |
-| Final  | Last Chance Reminder  | Delivers a strong, concise final reminder on the last enrollment day, driving immediate employee response. Leverages the urgency and immediacy of SMS to maximize final-day enrollments. | [SMS Template →](./sms-preview/relaunch4) |
+| Week                | Action                  | Description                                                                                          | Template                                           |
+|---------------------|-------------------------|------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| 1                   | **Initial Announcement**| Quickly captures attention, prompting immediate benefit exploration.                                | <CommsPreviewLink path="sms-preview" commsNumber="1" label="SMS Template" /> |
+| 2                   | **Deadline Reminder**   | Generates urgency, compelling immediate enrollment actions among those who've delayed.              | <CommsPreviewLink path="sms-preview" commsNumber="2" label="SMS Template" /> |
+| 3                   | **Follow-Up Reminder**  | Briefly reiterates benefit availability and encourages timely action.                               | <CommsPreviewLink path="sms-preview" commsNumber="3" label="SMS Template" /> |
+| 3                   | **Last Chance Reminder**| Concisely delivers final-day urgency, maximizing immediate enrollments.                             | <CommsPreviewLink path="sms-preview" commsNumber="4" label="SMS Template" /> |
 
 ---
 
@@ -75,8 +90,8 @@ Printed flyers (desk drops) are tangible, physical reminders placed in high-visi
     Distribute flyers widely across multiple common areas to maximize visibility, reach employees during downtime, and encourage immediate action via embedded QR codes.
 </Note>
 
-| Action              | Description         | Template            |
-|---------------------|---------------------|---------------------|
-| Desk Drop Flyer     | Physically reinforces benefit messaging by placing key enrollment information directly in employee gathering spaces. Reaches employees through repeated exposure, complements digital channels, and drives immediate enrollment actions through simplified QR code scanning. | <GeneratePDFLink />|
+| Action                 | Description                                                                                          | Template                |
+|------------------------|------------------------------------------------------------------------------------------------------|-------------------------|
+| **Desk Drop Flyer**    | Reinforces messaging in high-visibility areas, driving enrollments via QR code.           | <GeneratePDFLink />     |
 
 ---

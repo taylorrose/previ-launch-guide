@@ -3,23 +3,23 @@ import { Heading } from '@/components/Heading'
 
 const guides = [
   {
-    href: './emails',
+    href: './comms#email-communication',
     name: 'Email',
     description: 'Pre-written email templates to announce Previ to employees.',
   },
   {
-    href: './posts',
+    href: './comms#slack-and-teams-posts',
     name: 'Slack / Teams',
     description: 'Ready-to-post messages to share in Slack/Teams channels',
   },
   {
-    href: './sms',
+    href: './comms#sms-sends',
     name: 'SMS / Chirp',
     description:
       'Pre-formatted SMS reminders to drive enrollment',
   },
   {
-    href: './flyers',
+    href: './comms#printable-materials-desk-drops',
     name: 'Desk Drops',
     description:
       'Printable fliers with QR codes for break rooms & desks.',
