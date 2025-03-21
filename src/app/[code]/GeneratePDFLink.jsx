@@ -10,8 +10,8 @@ export function GeneratePDFLink({ children }) {
 
   return (
     <div className="not-prose">
-      <Button href={url} variant="text" arrow="right" target="_blank">
-        Download Printable Desk Drop Flyer
+      <Button href={url} variant="text" target="_blank">
+        Flyer Template →
       </Button>
     </div>
   )

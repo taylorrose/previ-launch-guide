@@ -197,10 +197,10 @@ export const navigation = [
     links: [
       { title: 'Introduction', href: './introduction' },
       { title: 'Quickstart', href: './quickstart' },
-      { title: 'Emails', href: './emails' },
-      { title: 'Slack / Teams Posts', href: './posts' },
-      { title: 'SMS Sends', href: './sms' },
-      { title: 'Desk Drops', href: './flyers' },
+      { title: 'Emails', href: './comms#email-communication' },
+      { title: 'Slack / Teams Posts', href: './comms#slack-and-teams-posts' },
+      { title: 'SMS Sends', href: './comms#sms-sends' },
+      { title: 'Desk Drops', href: './comms#printable-materials-desk-drops' },
     ],
   },
   {
