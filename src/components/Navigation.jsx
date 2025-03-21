@@ -86,8 +86,8 @@ function NavLink({ href, children, active = false, isSubsection = false }) {
         'flex py-1 pr-3 text-sm transition',
         isSubsection ? 'pl-8' : 'pl-4',
         active
-          ? 'text-zinc-900 dark:text-white'
-          : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white'
+          ? 'text-zinc-900 dark:text-white bg-zinc-200/25'
+          : 'text-zinc-900 dark:text-white'
       )}
     >
       <span className="truncate">{children}</span>
@@ -100,8 +100,6 @@ function NavLink({ href, children, active = false, isSubsection = false }) {
    easily compute active index for pages & subsections
 ------------------------------------------- */
 function flattenNavItems(group, code) {
-  // We create a single list of items with sequential indexes:
-  // Each top-level link + each subsection is one item.
   const items = []
   group.links.forEach((link) => {
     const mainHref = `/${code}/${link.href.replace('./', '')}`
@@ -120,7 +118,6 @@ function flattenNavItems(group, code) {
       })
     }
   })
-  // Attach a sequential index for each item
   return items.map((item, index) => ({ ...item, index }))
 }
 
@@ -133,28 +130,21 @@ function useActiveNavItem(group) {
   const { code } = useParams()
   const pathname = usePathname()
   const currentHash = useCurrentHash()
-
-  // For dynamic in-view detection:
-  const sections = useSectionStore((s) => s.sections)
   const visibleSections = useSectionStore((s) => s.visibleSections)
 
-  // Flatten group data for easy indexing
   const items = React.useMemo(() => flattenNavItems(group, code), [group, code])
 
-  // Default: no active item
   let activeIndex = -1
 
   items.forEach((item) => {
     if (pathname === item.mainHref) {
       if (item.subsectionId) {
-        // If this item is a subsection, check if it's active by hash or scroll
         const hashMatches = currentHash === `#${item.subsectionId}`
         const scrolledIntoView = visibleSections.includes(item.subsectionId)
         if (hashMatches || scrolledIntoView) {
           activeIndex = item.index
         }
       } else {
-        // If it's a top-level item with no subsections, use it if not overridden
         if (activeIndex === -1) {
           activeIndex = item.index
         }
@@ -199,8 +189,6 @@ function NavigationGroup({ group, className }) {
   const { code } = useParams()
   const pathname = usePathname()
   const currentHash = useCurrentHash()
-
-  // We'll use the store to see which sections are visible
   const visibleSections = useSectionStore((s) => s.visibleSections)
 
   return (
@@ -215,15 +203,29 @@ function NavigationGroup({ group, className }) {
         <ul>
           {group.links.map((link) => {
             const linkPath = `/${code}/${link.href.replace('./', '')}`
-            const isActivePage = pathname === linkPath
-            const subsectionIds = link.sections?.map((sec) => sec.id) || []
+            let isActivePage = pathname === linkPath
+
+            // ─────────────────────────────────────────────────────
+            //  Here's the ONLY change:
+            //  If a subsection is active, don't highlight the parent
+            // ─────────────────────────────────────────────────────
+            if (isActivePage && link.sections?.length > 0) {
+              const anySubsectionActive = link.sections.some((section) => {
+                const hashMatch = currentHash === `#${section.id}`
+                return hashMatch || visibleSections.includes(section.id)
+              })
+              if (anySubsectionActive) {
+                isActivePage = false
+              }
+            }
+            // ─────────────────────────────────────────────────────
 
             return (
               <li key={link.href} className="relative">
                 <NavLink href={linkPath} active={isActivePage}>
                   {link.title}
                 </NavLink>
-                {isActivePage && link.sections?.length > 0 && (
+                {pathname === linkPath && link.sections?.length > 0 && (
                   <ul>
                     {link.sections.map((section) => {
                       const isSubActive =
