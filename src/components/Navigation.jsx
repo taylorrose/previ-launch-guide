@@ -301,10 +301,15 @@ export const navigation = [
   {
     title: 'Benefits',
     links: [
-      { title: 'Overview', href: './overview' },
-      { title: 'Phone Plans', href: './wireless' },
-      { title: 'Insurance', href: './insurance' },
-      { title: 'Employee Store', href: './store' },
+      { title: 'Employee Pricing',
+        href: './overview',
+        sections: [
+          {id: 'wireless-phone-plans', title: 'Phone Plans'},
+          {id: 'home-and-auto-insurance', title: 'Home & Auto Insurance'},
+          {id: 'the-drop', title: 'The Drop'},
+          {id: 'support', title: 'Support'},
+        ]
+      },
     ],
   },
 ]

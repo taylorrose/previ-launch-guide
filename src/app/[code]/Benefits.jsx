@@ -26,7 +26,7 @@ const resources = [
     },
   },
   {
-    href: './wireless',
+    href: './overview#wireless-phone-plans',
     name: 'Phone Plans',
     description:
       'Group-discounted home & auto policies for better rates.',
@@ -40,7 +40,7 @@ const resources = [
     },
   },
   {
-    href: './insurance',
+    href: './overview#home-and-auto-insurance',
     name: 'Insurance',
     description:
       'Price comparison and monitoring on home & auto policies for better rates.',
@@ -54,8 +54,8 @@ const resources = [
     },
   },
   {
-    href: './store',
-    name: 'Employee Store',
+    href: './overview#the-drop',
+    name: 'The Drop',
     description:
       'Employee pricing on premium brands.',
     icon: UsersIcon,
@@ -146,9 +146,9 @@ function Resource({ resource }) {
 export function Benefits() {
   return (
     <div className="my-16 xl:max-w-none">
-      <Heading level={2} id="resources">
-        Benefits
-      </Heading>
+      {/*<Heading level={2} id="resources">*/}
+      {/*  Benefits*/}
+      {/*</Heading>*/}
       <div className="not-prose mt-4 grid grid-cols-1 gap-8 border-t border-zinc-900/5 pt-10 sm:grid-cols-2 xl:grid-cols-4 dark:border-white/5">
         {resources.map((resource) => (
           <Resource key={resource.href} resource={resource} />
