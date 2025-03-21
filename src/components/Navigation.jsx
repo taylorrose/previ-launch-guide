@@ -59,25 +59,12 @@ function NavLink({
     </Link>
   )
 }
-function VisibleSectionHighlight({ group }) {
-  const { code } = useParams()
-  const pathname = usePathname()
+export function useCurrentHash() {
+  const [currentHash, setCurrentHash] = useState('')
   const router = useRouter()
 
-  let [sections, visibleSections] = useInitialValue(
-    [
-      useSectionStore((s) => s.sections),
-      useSectionStore((s) => s.visibleSections),
-    ],
-    useIsInsideMobileNavigation(),
-  )
-
-  const [currentHash, setCurrentHash] = useState('')
-
   useEffect(() => {
-    const updateHash = () => {
-      setCurrentHash(window.location.hash)
-    }
+    const updateHash = () => setCurrentHash(window.location.hash)
 
     updateHash()
 
@@ -102,6 +89,23 @@ function VisibleSectionHighlight({ group }) {
       window.removeEventListener('popstate', updateHash)
     }
   }, [router])
+
+  return currentHash
+}
+
+
+function VisibleSectionHighlight({ group }) {
+  const { code } = useParams()
+  const pathname = usePathname()
+  const currentHash = useCurrentHash()
+
+  let [sections, visibleSections] = useInitialValue(
+    [
+      useSectionStore((s) => s.sections),
+      useSectionStore((s) => s.visibleSections),
+    ],
+    useIsInsideMobileNavigation(),
+  )
 
   let isPresent = useIsPresent()
   let firstVisibleSectionIndex = Math.max(
@@ -141,44 +145,14 @@ function VisibleSectionHighlight({ group }) {
   )
 }
 
+
 function ActivePageMarker({ group }) {
   const { code } = useParams()
   const pathname = usePathname()
-  const router = useRouter()
+  const currentHash = useCurrentHash()
+
   const itemHeight = remToPx(2)
   const offset = remToPx(0.25)
-
-  const [currentHash, setCurrentHash] = useState('')
-
-  useEffect(() => {
-    const updateHash = () => {
-      setCurrentHash(window.location.hash)
-    }
-
-    updateHash() // Set hash on initial mount
-
-    // Listen to Next.js router events
-    const originalPushState = window.history.pushState
-    const originalReplaceState = window.history.replaceState
-
-    window.history.pushState = function (...args) {
-      originalPushState.apply(this, args)
-      updateHash()
-    }
-
-    window.history.replaceState = function (...args) {
-      originalReplaceState.apply(this, args)
-      updateHash()
-    }
-
-    window.addEventListener('popstate', updateHash)
-
-    return () => {
-      window.history.pushState = originalPushState
-      window.history.replaceState = originalReplaceState
-      window.removeEventListener('popstate', updateHash)
-    }
-  }, [router])
 
   let activePageIndex = group.links.findIndex((link) => {
     const [linkPath, linkHash] = link.href.split('#')
