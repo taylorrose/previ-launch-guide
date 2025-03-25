@@ -374,5 +374,6 @@ export const employerData = [
   {"access_code":"zay4xx2","public_employer_name":"Zayo Group"},
   {"access_code":"zere9cv","public_employer_name":"Zermatt Utah"},
   {"access_code":"zionap9","public_employer_name":"Zions Bank"},
-  {"access_code":"mod25ne","public_employer_name":"Modere"}
+  {"access_code":"mod25ne","public_employer_name":"Modere"},
+  {"access_code":"trose","public_employer_name":"Taylor LLC"}
 ]
