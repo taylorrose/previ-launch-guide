@@ -13,7 +13,7 @@ export async function GET(request, { params }) {
 
 
   // Load your HTML email template
-  const templatePath = path.join(process.cwd(), 'public', 'templates', 'one-sheet1.html');
+  const templatePath = path.join(process.cwd(), 'public', 'templates', 'one-sheet2.html');
   let html = await fs.readFile(templatePath, 'utf-8');
 
   // Dynamically replace placeholders
