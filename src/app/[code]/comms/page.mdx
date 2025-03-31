@@ -3,6 +3,7 @@ import { ScrollSpy } from '../ScrollSpy'
 import { CompanyName } from '../CompanyName.jsx'
 import { GeneratePDFLink } from '../GeneratePDFLink.jsx'
 import { CommsPreviewLink } from '../CommsPreviewLink.jsx'
+import { VideoPlayer} from "../../../components/VideoPlayer";
 
 <ValidateCode />
 <ScrollSpy />
@@ -79,6 +80,65 @@ SMS messaging provides direct, immediate, and highly-visible communication strai
 | 3                   | **Follow-Up Reminder**  | Briefly reiterates benefit availability and encourages timely action.                               | <CommsPreviewLink path="sms-preview" commsNumber="3" label="SMS Template" /> |
 | 3                   | **Last Chance Reminder**| Concisely delivers final-day urgency, maximizing immediate enrollments.                             | <CommsPreviewLink path="sms-preview" commsNumber="4" label="SMS Template" /> |
 
+
+
+## Chirp Help Guide
+Chirp is a 1-way SMS messaging service built on Twillio's architecture, designed to help companies communicate effectively with their employees via text message. This guide will walk you through the key features and functionalities of Chirp.
+
+<VideoPlayer videoPath="/videos/chirp_walkthrough.mp4" width="100%" />
+---
+## Chirp Account Creation
+Your company will need to provide some information for Previ to:
+- Provision the phone number on your behalf. This dedicated phone number is yours to keep and won’t change.
+- Create the account with all company administrators
+### User Account Setup
+All admin/user accounts will be set up by the team at Previ. Once the account and users are created, each user will get an email with instructions on how to access Chirp.
+### Logging In
+1. Go to the [Chirp](https://chirp.previ.com/login) website.
+2. Enter your username and password.
+3. Click "Login."
+ ## Employee Data Management
+There are two ways to add employees to Chirp: HRIS integration and CSV upload.
+### 1. HRIS Integration
+Chirp can integrate with your existing HRIS system. This is done through a program called Finch that is similar to the experience you would get with Plaid. It uses your login credentials to access the HRIS system and pull the necessary information.
+![Integration HRIS](/images/chirp_guide/Screenshot1.png)
+
+### 2. CSV Upload
+
+1. Prepare a CSV file with employee data. Ensure the file has 3 columns with the exact names "**firstName**" “**lastName**” and “**phoneNumber**”.
+1. *NOTE: These column headers are case sensitive, so add them exactly as they are presented above.*
+2. Click "New CSV Import" in the “Employees” section.
+3. Select your CSV file.
+4. Review the data and confirm the upload.
+![Upload CSV](/images/chirp_guide/Screenshot2.png)
+## Message Creation
+
+### Drafting a Message
+
+1. Click "Messages” on the left side.
+2. Enter your message in the text box.
+3. Click “Next.”
+![Draft a Message](/images/chirp_guide/Screenshot3.png)
+
+### Using Chirp AI
+
+1. Review the Chirp AI-suggested changes.
+2. Accept or modify the message.
+3. You can choose to send yourself or a friend a test message.
+4. Click “Next.”
+![Chirp AI](/images/chirp_guide/Screenshot4.png)
+
+## Message Scheduling
+
+### Scheduling a Message
+
+1. After drafting and refining your message, click "Schedule Message."
+2. Select the desired date and time.
+3. Click "Schedule."
+![Schedule a Message](/images/chirp_guide/Screenshot5.png)
+### Support
+
+If you encounter any issues or have questions, please contact the Chirp support team.
 ---
 
 ## Printable Materials (Desk Drops)
