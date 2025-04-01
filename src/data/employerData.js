@@ -1738,9 +1738,5 @@ export const employerData = [
   {
     "access_code": "har7hgu",
     "public_employer_name": "Hartford HealthCare"
-  },
-  {
-    "access_code": "tmth",
-    "public_employer_name": "Too Much to Handle"
   }
 ];
