@@ -584,7 +584,7 @@ export const employerData = [
     "public_employer_name": "UAC"
   },
   {
-    "access_code": "qnyrhcq",
+    "access_code": "ultk92f",
     "public_employer_name": "Ultradent"
   },
   {
@@ -1738,5 +1738,33 @@ export const employerData = [
   {
     "access_code": "har7hgu",
     "public_employer_name": "Hartford HealthCare"
+  },
+  {
+    "access_code": "siru3dy",
+    "public_employer_name": "SIRQ"
+  },
+  {
+    "access_code": "warspj3",
+    "public_employer_name": "Warrior Rising"
+  },
+  {
+    "access_code": "fanycfc",
+    "public_employer_name": "FanDuel"
+  },
+  {
+    "access_code": "car3xar",
+    "public_employer_name": "Carlson Distributing"
+  },
+  {
+    "access_code": "mem77fe",
+    "public_employer_name": "Membersy"
+  },
+  {
+    "access_code": "par65br",
+    "public_employer_name": "Partner.co"
+  },
+  {
+    "access_code": "sum58mr",
+    "public_employer_name": "Sumitomo Pharma"
   }
 ];
