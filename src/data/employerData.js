@@ -1777,6 +1777,6 @@ export const employerData = [
   },
   {
     "access_code": "san4u5k",
-    "public_employer_name": "San Georgina Hosptial"
+    "public_employer_name": "San Gorgonio Memorial Hospital"
   }
 ];
