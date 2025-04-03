@@ -39,9 +39,9 @@ export function VideoPlayer({
         {/* 2) Share Button:
             On click, copy the absolute link to the clipboard
          */}
-        <Button onClick={handleShare} variant="outline" arrow="right">
-          <>Copy Video Link</>
-        </Button>
+        {/*<Button onClick={handleShare} variant="outline" arrow="right">*/}
+        {/*  <>Copy Video Link</>*/}
+        {/*</Button>*/}
       </div>
     </div>
   )
