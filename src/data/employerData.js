@@ -93,7 +93,7 @@ export const employerData = [
   },
   {
     "access_code": "canf4j4",
-    "public_employer_name": "Kenect"
+    "public_employer_name": "Canopy"
   },
   {
     "access_code": "chtas6c",
@@ -1653,11 +1653,11 @@ export const employerData = [
   },
   {
     "access_code": "dolmjwj",
-    "public_employer_name": "Dolfintech"
+    "public_employer_name": "DolFinTech"
   },
   {
     "access_code": "autv7sg",
-    "public_employer_name": "CARD"
+    "public_employer_name": "(CARD) Center for Autism and Related Disorders"
   },
   {
     "access_code": "betp3m6",
@@ -1766,5 +1766,17 @@ export const employerData = [
   {
     "access_code": "sum58mr",
     "public_employer_name": "Sumitomo Pharma"
+  },
+  {
+    "access_code": "ecoe2fb",
+    "public_employer_name": "Ecobat"
+  },
+  {
+    "access_code": "spr7cnv",
+    "public_employer_name": "Spring Venture Group"
+  },
+  {
+    "access_code": "san4u5k",
+    "public_employer_name": "San Georgina Hosptial"
   }
 ];
