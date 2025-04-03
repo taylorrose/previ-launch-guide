@@ -1661,7 +1661,7 @@ export const employerData = [
   },
   {
     "access_code": "betp3m6",
-    "public_employer_name": "Betanxt"
+    "public_employer_name": "BetaNXT"
   },
   {
     "access_code": "paxzza9",
