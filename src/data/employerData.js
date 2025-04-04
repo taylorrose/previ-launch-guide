@@ -1304,6 +1304,26 @@ export const employerData = [
     "public_employer_name": "The Larry H. Miller Company"
   },
   {
+    "access_code": "clabbwu",
+    "public_employer_name": "Claravine"
+  },
+  {
+    "access_code": "midfpkn",
+    "public_employer_name": "Midwest Dental Supply"
+  },
+  {
+    "access_code": "fac7jgt",
+    "public_employer_name": "Facet"
+  },
+  {
+    "access_code": "car6mpq",
+    "public_employer_name": "Carketa"
+  },
+  {
+    "access_code": "onl2exd",
+    "public_employer_name": "Online Image"
+  },
+  {
     "access_code": "netz4uu",
     "public_employer_name": "NetDocuments"
   },
@@ -1672,10 +1692,6 @@ export const employerData = [
     "public_employer_name": "Leukemia & Lymphoma Society"
   },
   {
-    "access_code": "sanaucz",
-    "public_employer_name": "San Gorgobio Memorial Hospital"
-  },
-  {
     "access_code": "ancw2hf",
     "public_employer_name": "AnchorPoint Management"
   },
@@ -1778,5 +1794,9 @@ export const employerData = [
   {
     "access_code": "san4u5k",
     "public_employer_name": "San Gorgonio Memorial Hospital"
+  },
+  {
+    "access_code": "cocb7s2",
+    "public_employer_name": "COCC"
   }
 ];
