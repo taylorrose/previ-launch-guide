@@ -1798,5 +1798,61 @@ export const employerData = [
   {
     "access_code": "cocb7s2",
     "public_employer_name": "COCC"
+  },
+  {
+    "access_code": "evowbzj",
+    "public_employer_name": "Evobox"
+  },
+  {
+    "access_code": "aaauvug",
+    "public_employer_name": "AAA"
+  },
+  {
+    "access_code": "aus49ze",
+    "public_employer_name": "City of Austin"
+  },
+  {
+    "access_code": "dovy6xn",
+    "public_employer_name": "Dover Corporation"
+  },
+  {
+    "access_code": "fithcs4",
+    "public_employer_name": "Fitness International"
+  },
+  {
+    "access_code": "lehk386",
+    "public_employer_name": "Lehigh Valley Restaurant Brands"
+  },
+  {
+    "access_code": "mae55cs",
+    "public_employer_name": "Maersk"
+  },
+  {
+    "access_code": "micwsmh",
+    "public_employer_name": "My Michigan Health"
+  },
+  {
+    "access_code": "pannaq9",
+    "public_employer_name": "Panasonic"
+  },
+  {
+    "access_code": "hyuuut8",
+    "public_employer_name": "Hyundai Motor Group"
+  },
+  {
+    "access_code": "geizypc",
+    "public_employer_name": "Geico"
+  },
+  {
+    "access_code": "sembsd4",
+    "public_employer_name": "Seminole Tribe of Florida"
+  },
+  {
+    "access_code": "chiwztv",
+    "public_employer_name": "Chickasaw Nation"
+  },
+  {
+    "access_code": "ane5qq2",
+    "public_employer_name": "US Anesthesia Partners"
   }
 ];
