@@ -121,7 +121,7 @@ export const employerData = [
   },
   {
     "access_code": "cosejkc",
-    "public_employer_name": "Cost Segragation Authority"
+    "public_employer_name": "CSA Partners"
   },
   {
     "access_code": "cvab624",
