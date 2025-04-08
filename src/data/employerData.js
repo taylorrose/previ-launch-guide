@@ -677,7 +677,7 @@ export const employerData = [
   },
   {
     "access_code": "blvhcug",
-    "public_employer_name": "Boart Longyear Veracio"
+    "public_employer_name": "Boart Longyear"
   },
   {
     "access_code": "csa2d77",
