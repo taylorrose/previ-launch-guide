@@ -1854,5 +1854,13 @@ export const employerData = [
   {
     "access_code": "ane5qq2",
     "public_employer_name": "US Anesthesia Partners"
+  },
+  {
+    "access_code": "mer6uvu",
+    "public_employer_name": "Merlin Entertainments"
+  },
+  {
+    "access_code": "escmbkd",
+    "public_employer_name": "Escalon Services"
   }
 ];
